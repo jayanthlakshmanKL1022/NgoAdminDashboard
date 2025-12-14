@@ -87,6 +87,10 @@ Screenshots of the Project:
 <img width="1917" height="897" alt="image" src="https://github.com/user-attachments/assets/f6000949-5a05-4da2-bea9-562bc0bf5509" />
 <img width="1866" height="862" alt="image" src="https://github.com/user-attachments/assets/8c01f228-0e17-4412-af00-95e816ac6cd9" />
 
+Notion link:https://www.notion.so/NGO-Dashboard-Management-2c9ef56b1f928098a780d03cedb3c0cb
+demo video:https://drive.google.com/file/d/1q6QnGij1nNNfWqFpbSvGLT2WM_38vaf0/view?usp=drive_link
+https://1drv.ms/v/c/69188d565bf857f2/IQAsrxXNGQUOS75TrO8qe07VAfvuC57ccneHblBGKhr-iTM?e=SYkNTg
+
 
 
 
