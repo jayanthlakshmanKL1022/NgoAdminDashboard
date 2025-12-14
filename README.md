@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# NGO Admin Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
+This project is a **web application for NGOs in India** to track and report the impact of their work. The app allows NGOs to submit monthly reports individually or via bulk CSV upload, and provides an **admin dashboard** to view aggregated data and track progress.
 
-Currently, two official plugins are available:
+The app is built using the **MERN stack** (MongoDB, Express, React, Node.js) and includes **JWT-based authentication** for admin access.
+---
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### NGO Report Submission
+- **Individual report submission**:
+  - Fields: NGO ID, Month, People Helped, Events Conducted, Funds Utilized
+  - Validates input before sending to backend
+- **Bulk CSV upload**:
+  - Upload multiple monthly reports at once
+  - Backend processes CSV **asynchronously**
+  - Provides job ID and progress updates during processing
+  - Handles partial failures (invalid rows do not block other rows)
 
-## React Compiler
+### Admin Dashboard
+- **JWT-protected login** (username: `admin`, password: `admin123`)
+- **Month-wise filtering** to view data for any month
+- Displays aggregated statistics:
+  - Total NGOs Reporting
+  - Total People Helped
+  - Total Events Conducted
+  - Total Funds Utilized
+- Responsive dashboard cards with clear summary
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
+- **Frontend**: React, Material-UI
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: JWT
+- **Other Tools**: Vite, Axios
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Setup Instructions
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Backend
+1. Navigate to backend folder:
+   ```bash
+   cd express-ts-backend
+Install dependencies:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+npm install
+Create a .env file with necessary environment variables (if any)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Start the server:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+bash
+Copy code
+npm run dev
+Frontend
+Navigate to frontend folder:
+
+Install dependencies:
+npm install
+Start the app:npm run dev
+
+start backend -->go inside express-ts-backend and put npm run dev
+
+bash
+Copy code
+npm run dev
+Open browser at http://localhost:5173 (Vite default port)
+
+API Endpoints
+POST /report → Submit a single NGO report
+POST /reports/upload → Upload CSV file of reports (processed asynchronously)
+GET /job-status/{job_id} → Check status of CSV processing
+GET /dashboard?month=YYYY-MM → Get aggregated dashboard data for a selected month
+
+Admin Credentials
+Username: admin
+Password: admin123
+
+
+
+Screenshots of the Project:
+<img width="1897" height="901" alt="image" src="https://github.com/user-attachments/assets/7a379e8b-482c-41dc-a2ec-4f33b22ed29b" />
+<img width="1900" height="902" alt="image" src="https://github.com/user-attachments/assets/50474aaa-d71a-4975-a386-1958e3e1af3c" />
+<img width="1917" height="897" alt="image" src="https://github.com/user-attachments/assets/f6000949-5a05-4da2-bea9-562bc0bf5509" />
+<img width="1866" height="862" alt="image" src="https://github.com/user-attachments/assets/8c01f228-0e17-4412-af00-95e816ac6cd9" />
+
+
+
+
